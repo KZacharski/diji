@@ -1,3 +1,7 @@
-# diji
-![A banner with 地基 and diji on a gradient background](https://github.com/KZacharski/diji/blob/github-files/banner.png?raw=true)
-Create a vanilla js project in seconds
+<div align=center>
+<img src="https://github.com/KZacharski/diji/blob/github-files/banner.png?raw=true" width="60%">
+<br>
+<h1>diji</h1>
+<p>Create a vanilla JS project in seconds</p>
+</div>
+
