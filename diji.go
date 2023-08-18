@@ -55,11 +55,13 @@ func main() {
 	}
 	configtext := string(configbytes)
 	var quickmode bool = strings.Contains(configtext, "quick-mode = true")
-	fmt.Println(quickmode)
+	var debug bool = strings.Contains(configtext, "debug = true")
+
+	var cssstr string
+	var jsstr string
 
 	if quickmode == false {
-		var cssstr string
-		var jsstr string
+
 		fmt.Print("Create a css file (y/n, default y): ")
 		fmt.Scanln(&cssstr)
 		fmt.Print("Create a js file (y/n, default y): ")
@@ -111,9 +113,12 @@ func main() {
 	defer index.Close()
 	fmt.Println(indname + " created.")
 
+	var cssname string
+	var csscontent string
+
 	if createcss == true {
-		var cssname string = projname + "/style.css"
-		var csscontent string = `body {
+		cssname = projname + "/style.css"
+		csscontent = `body {
 font-family: sans-serif;
 }`
 		style, err := os.Create(cssname)
@@ -125,14 +130,44 @@ font-family: sans-serif;
 		defer style.Close()
 		fmt.Println(cssname + " created.")
 	}
+
+	var jsname string
 	if createjs == true {
-		var jsname string = projname + "/script.js"
+		jsname = projname + "/script.js"
 		script, err := os.Create(jsname)
 		if err != nil {
 			log.Fatal(err)
 		}
 		defer script.Close()
 		fmt.Println(jsname + " created.")
+	}
+
+	if debug == true {
+		fmt.Println("projname(string): " + projname)
+		fmt.Print("createcss(bool): ")
+		fmt.Print(createcss)
+		fmt.Print("createjs(bool): ")
+		fmt.Print(createjs)
+		fmt.Print("configbytes([]byte]): ")
+		fmt.Print(configbytes)
+		fmt.Println("configtext(string): " + configtext)
+		fmt.Print("quickmode(bool): ")
+		fmt.Print(quickmode)
+		fmt.Print("debug(bool): ")
+		fmt.Print(debug)
+		fmt.Println("cssstr(string): " + cssstr)
+		fmt.Println("jsstr(string): " + jsstr)
+		fmt.Println("indname(string): " + indname)
+		fmt.Println("assetspath(string): " + assetspath)
+		fmt.Println("favpath(string): " + favpath)
+		fmt.Println("indexcontent1(string): " + indexcontent1)
+		fmt.Println("csstag(string): " + csstag)
+		fmt.Println("jstag(string): " + jstag)
+		fmt.Println("indexcontent2(string): " + indexcontent2)
+		fmt.Println("indexcontent(string): " + indexcontent)
+		fmt.Println("cssname(string): " + cssname)
+		fmt.Println("csscontent(string): " + csscontent)
+		fmt.Println("jsname(string): " + jsname)
 	}
 
 }
