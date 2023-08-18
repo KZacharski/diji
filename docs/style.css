@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+
+body {
+font-family: 'Open Sans', sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+    height: 100%;
+    padding: 20px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    margin: 0px;
+    align-items: center;
+    justify-content: center;
+display: flex;
+ flex: 0 0 100%;
+ 
+    background: linear-gradient(#7D7D7D, #4A4A4A);
+} .headername {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 700;
+    font-size: 55pt;
+    padding: 0px;
+    margin: 0px;
+    color: white;
+} .headercontent {
+    text-align: center;
+} .headersubtitle {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 500;
+    font-size: 20pt;
+color: white;
+padding: 0px;
+margin: 0px;
+margin-top: 20px;
+}
+.button {
+    margin: 10px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color:rgba(255, 255, 255, 0.20);
+    border-radius: 100px;
+    color: white;
+    text-decoration: none;
+    font-size: 17pt;
+    font-weight: 500;
+} .getstarted {
+    background-color: white;
+    color: black;
+}
