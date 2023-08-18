@@ -1,11 +1,13 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"io"
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 )
 
@@ -41,10 +43,37 @@ func copy(src, dst string) (int64, error) {
 }
 
 func main() {
+	var ver string = "1.0"
+	var version int = 1
+
+	argsar := os.Args[1:]
+	var debugelement string = "-d"
+	var quickelement string = "-q"
+	var debugargument bool = false
+	var quickargument bool = false
+
+	for i := 0; i < len(argsar); i++ {
+		// checking if the array contains the given value
+		if argsar[i] == debugelement {
+			// changing the boolean variable
+			debugargument = true
+			break
+		}
+	}
+
+	for i := 0; i < len(argsar); i++ {
+		// checking if the array contains the given value
+		if argsar[i] == quickelement {
+			// changing the boolean variable
+			quickargument = true
+			break
+		}
+	}
+
 	var projname string
 
 	fmt.Println("地基")
-	fmt.Println("diji 0.1-BETA")
+	fmt.Println("diji " + ver)
 	fmt.Println("by KZacharski")
 	fmt.Print("Project name: ")
 	fmt.Scanln(&projname)
@@ -53,13 +82,44 @@ func main() {
 	var createsample bool = false
 	var initgit bool = true
 	var creategitignore bool = true
-	configbytes, err := os.ReadFile(".diji-config/config.txt")
+
+	var configlocation string
+	var exPath string
+	if _, err := os.Stat(".diji-config/config.txt"); err == nil {
+		configlocation = ".diji-config/config.txt"
+
+	} else if errors.Is(err, os.ErrNotExist) {
+		ex, err := os.Executable()
+		if err != nil {
+			panic(err)
+		}
+		exPath = filepath.Dir(ex)
+		configlocation = exPath + "/.diji-config/config.txt"
+
+	}
+	configbytes, err := os.ReadFile(configlocation)
 	if err != nil {
 		fmt.Print(err)
 	}
 	configtext := string(configbytes)
 	var quickmode bool = strings.Contains(configtext, "quick-mode = true")
 	var debug bool = strings.Contains(configtext, "debug = true")
+
+	if debugargument == true {
+		if debug == true {
+			debug = false
+		} else if debug == false {
+			debug = true
+		}
+	}
+
+	if quickargument == true {
+		if quickmode == true {
+			quickmode = false
+		} else if quickmode == false {
+			quickmode = true
+		}
+	}
 
 	var cssstr string
 	var jsstr string
@@ -81,10 +141,21 @@ func main() {
 		fmt.Scanln(&samplestr)
 		fmt.Print("Initialize a git repo (y/n, default y): ")
 		fmt.Scanln(&gitstr)
-		fmt.Print("Create .gitignore (y/n, default y): ")
-		fmt.Scanln(&gitignorestr)
-		fmt.Print("Add files/file types to .gitignore: ")
-		fmt.Scanln(&gifiles)
+		if gitstr == "n" {
+			initgit = false
+		}
+		if initgit == true {
+			fmt.Print("Create .gitignore (y/n, default y): ")
+			fmt.Scanln(&gitignorestr)
+			if gitignorestr == "n" {
+				creategitignore = false
+			}
+			if creategitignore == true {
+				fmt.Print("Add files/file types to .gitignore: ")
+				fmt.Scanln(&gifiles)
+			}
+
+		}
 		if cssstr == "n" {
 			createcss = false
 		}
@@ -94,12 +165,10 @@ func main() {
 		if samplestr == "y" {
 			createsample = true
 		}
-		if gitstr == "n" {
-			initgit = false
-		}
-		if gitignorestr == "n" {
-			creategitignore = false
-		}
+	}
+
+	if initgit == false {
+		creategitignore = false
 	}
 
 	if err := os.Mkdir(projname, os.ModePerm); err != nil {
@@ -135,7 +204,7 @@ func main() {
 </body>
 </html>`
 	var samplecontent string = `<h1>` + projname + `</h1>
-<h3>Generated with diji</h3>
+<h3>Generated with diji` + ver + `</h3>
 <p>Website content</p>`
 	if createsample == true {
 		indexcontent2 = `</head>
@@ -221,18 +290,19 @@ font-family: sans-serif;
 	}
 
 	if debug == true {
+		fmt.Println(version)
 		fmt.Println("projname(string): " + projname)
 		fmt.Print("createcss(bool): ")
-		fmt.Print(createcss)
+		fmt.Println(createcss)
 		fmt.Print("createjs(bool): ")
-		fmt.Print(createjs)
+		fmt.Println(createjs)
 		fmt.Print("configbytes([]byte]): ")
-		fmt.Print(configbytes)
+		fmt.Println(configbytes)
 		fmt.Println("configtext(string): " + configtext)
 		fmt.Print("quickmode(bool): ")
-		fmt.Print(quickmode)
+		fmt.Println(quickmode)
 		fmt.Print("debug(bool): ")
-		fmt.Print(debug)
+		fmt.Println(debug)
 		fmt.Println("cssstr(string): " + cssstr)
 		fmt.Println("jsstr(string): " + jsstr)
 		fmt.Println("indname(string): " + indname)
@@ -246,6 +316,30 @@ font-family: sans-serif;
 		fmt.Println("cssname(string): " + cssname)
 		fmt.Println("csscontent(string): " + csscontent)
 		fmt.Println("jsname(string): " + jsname)
+		fmt.Print("argsar(array): ")
+		fmt.Println(argsar)
+		fmt.Println("debugelement(string): " + debugelement)
+		fmt.Println("quickelement(string): " + quickelement)
+		fmt.Print("debugargument(bool): ")
+		fmt.Println(debugargument)
+		fmt.Print("quickargument(bool): ")
+		fmt.Println(quickargument)
+		fmt.Println("configlocation(string): " + configlocation)
+		fmt.Println("exPath(string): " + exPath)
+		fmt.Println("samplestr(string): " + samplestr)
+		fmt.Println("langstr(string): " + langstr)
+		fmt.Println("gitstr(string): " + gitstr)
+		fmt.Println("gitignorestr(string): " + gitignorestr)
+		fmt.Println("gifiles(string): " + gifiles)
+		fmt.Print("createsample(bool): ")
+		fmt.Println(createsample)
+		fmt.Print("initgit(bool): ")
+		fmt.Println(initgit)
+		fmt.Print("creategitignore(bool): ")
+		fmt.Println(creategitignore)
+		fmt.Println("samplecontent(string)" + samplecontent)
+		fmt.Println("giname(string)" + giname)
+		fmt.Println("gicontent(string)" + gicontent)
 	}
 
 	fmt.Println("Project created in ./" + projname + ".")
