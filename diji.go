@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"os/exec"
 	"strings"
 )
 
@@ -49,6 +50,9 @@ func main() {
 	fmt.Scanln(&projname)
 	var createcss bool = true
 	var createjs bool = true
+	var createsample bool = false
+	var initgit bool = true
+	var creategitignore bool = true
 	configbytes, err := os.ReadFile(".diji-config/config.txt")
 	if err != nil {
 		fmt.Print(err)
@@ -59,6 +63,11 @@ func main() {
 
 	var cssstr string
 	var jsstr string
+	var samplestr string
+	var langstr string = "en"
+	var gitstr string
+	var gitignorestr string
+	var gifiles string
 
 	if quickmode == false {
 
@@ -66,11 +75,30 @@ func main() {
 		fmt.Scanln(&cssstr)
 		fmt.Print("Create a js file (y/n, default y): ")
 		fmt.Scanln(&jsstr)
+		fmt.Print("Website language (default en): ")
+		fmt.Scanln(&langstr)
+		fmt.Print("Insert sample content (y/n, default n): ")
+		fmt.Scanln(&samplestr)
+		fmt.Print("Initialize a git repo (y/n, default y): ")
+		fmt.Scanln(&gitstr)
+		fmt.Print("Create .gitignore (y/n, default y): ")
+		fmt.Scanln(&gitignorestr)
+		fmt.Print("Add files/file types to .gitignore: ")
+		fmt.Scanln(&gifiles)
 		if cssstr == "n" {
 			createcss = false
 		}
 		if jsstr == "n" {
 			createjs = false
+		}
+		if samplestr == "y" {
+			createsample = true
+		}
+		if gitstr == "n" {
+			initgit = false
+		}
+		if gitignorestr == "n" {
+			creategitignore = false
 		}
 	}
 
@@ -90,8 +118,11 @@ func main() {
 	copy(".diji-config/defaultfav.png", favpath)
 	fmt.Println(favpath + " created.")
 	var indexcontent1 string = `<!DOCTYPE html>
-<html>
+<html lang="` + langstr + `">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>` + projname + `</title>
 <link rel="icon" type="image" href="./assets/favicon.png">
 `
@@ -100,7 +131,18 @@ func main() {
 	var jstag string = `<script src="script.js"></script>
 `
 	var indexcontent2 string = `</head>
+<body>
+</body>
 </html>`
+	var samplecontent string = `<h1>` + projname + `</h1>
+<h3>Generated with diji</h3>
+<p>Website content</p>`
+	if createsample == true {
+		indexcontent2 = `</head>
+<body>
+` + samplecontent + `
+</body>`
+	}
 	if createcss == true {
 		indexcontent1 = indexcontent1 + csstag
 	}
@@ -142,6 +184,42 @@ font-family: sans-serif;
 		fmt.Println(jsname + " created.")
 	}
 
+	var giname string
+	var gicontent string
+
+	if creategitignore == true {
+		giname = projname + "/.gitignore"
+		gicontent = ".DS_Store " + gifiles
+		gignore, err := os.Create(giname)
+		if err != nil {
+			log.Fatal(err)
+		}
+		_, err2 := gignore.WriteString(gicontent)
+		check(err2)
+		defer gignore.Close()
+
+		fmt.Println(giname + " created.")
+	}
+
+	if initgit == true {
+		cmd := exec.Command("git", "init", projname)
+		if err := cmd.Run(); err != nil {
+			log.Fatal(err)
+		}
+		cmd1 := exec.Command("git", "add", ".")
+		cmd1.Dir = "./" + projname
+		if err := cmd1.Run(); err != nil {
+			log.Fatal(err)
+		}
+
+		cmd2 := exec.Command("git", "commit", "-a", "-m", `"Initial commit"`)
+		cmd2.Dir = "./" + projname
+		if err := cmd2.Run(); err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println("Git repo initialized.")
+	}
+
 	if debug == true {
 		fmt.Println("projname(string): " + projname)
 		fmt.Print("createcss(bool): ")
@@ -169,5 +247,8 @@ font-family: sans-serif;
 		fmt.Println("csscontent(string): " + csscontent)
 		fmt.Println("jsname(string): " + jsname)
 	}
+
+	fmt.Println("Project created in ./" + projname + ".")
+	fmt.Println("Thanks for using diji.")
 
 }
