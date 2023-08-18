@@ -85,8 +85,8 @@ func main() {
 
 	var configlocation string
 	var exPath string
-	if _, err := os.Stat(".diji-config/config.txt"); err == nil {
-		configlocation = ".diji-config/config.txt"
+	if _, err := os.Stat("diji-config/config.txt"); err == nil {
+		configlocation = "diji-config/config.txt"
 
 	} else if errors.Is(err, os.ErrNotExist) {
 		ex, err := os.Executable()
@@ -94,7 +94,7 @@ func main() {
 			panic(err)
 		}
 		exPath = filepath.Dir(ex)
-		configlocation = exPath + "/.diji-config/config.txt"
+		configlocation = exPath + "/diji-config/config.txt"
 
 	}
 	configbytes, err := os.ReadFile(configlocation)
@@ -184,7 +184,7 @@ func main() {
 		log.Fatal(err)
 	}
 	var favpath string = assetspath + "/favicon.png"
-	copy(".diji-config/defaultfav.png", favpath)
+	copy("diji-config/defaultfav.png", favpath)
 	fmt.Println(favpath + " created.")
 	var indexcontent1 string = `<!DOCTYPE html>
 <html lang="` + langstr + `">
