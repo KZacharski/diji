@@ -204,7 +204,7 @@ func main() {
 </body>
 </html>`
 	var samplecontent string = `<h1>` + projname + `</h1>
-<h3>Generated with diji` + ver + `</h3>
+<h3>Generated with diji ` + ver + `</h3>
 <p>Website content</p>`
 	if createsample == true {
 		indexcontent2 = `</head>
