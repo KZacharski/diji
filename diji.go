@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 )
 
 func check(e error) {
@@ -28,8 +29,21 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	_, err2 := index.WriteString("test")
+	var indexcontent string = `<!DOCTYPE html>
+<html>
+<head>
+<title>` + projname + `</title>
+</head>
+<html>`
+	_, err2 := index.WriteString(indexcontent)
 	check(err2)
 	defer index.Close()
 	fmt.Println(indname + " created.")
+	configbytes, err := os.ReadFile(".diji-config/config.txt")
+	if err != nil {
+		fmt.Print(err)
+	}
+	configtext := string(configbytes)
+	var quickmode bool = strings.Contains(configtext, "quick-mode = true")
+	fmt.Println(quickmode)
 }

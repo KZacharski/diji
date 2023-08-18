@@ -1,0 +1,2 @@
+// Quick mode skips all the questions besides project name and always uses the default option.
+quick-mode = true
