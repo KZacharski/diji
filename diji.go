@@ -43,8 +43,8 @@ func copy(src, dst string) (int64, error) {
 }
 
 func main() {
-	var ver string = "1.0"
-	var version int = 1
+	var ver string = "1.1"
+	var version int = 2
 
 	argsar := os.Args[1:]
 	var debugelement string = "-d"
