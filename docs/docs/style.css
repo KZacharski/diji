@@ -1,17 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
 body {
-font-family: sans-serif;
+font-family: 'Open Sans', sans-serif;
 margin: 0;
+background-color: #111;
+color: white;
 } .navbar {
-    position: fixed;
+    position: sticky;
+    top: 0px;
     width: 100%;
     background-color: black;
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.473);
     display: flex;
     align-items: center;
     padding: 10px;
+    padding-right: 0;
+    padding-left: 0;
 } .navicon {
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 10px;
+} .content {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: auto;
+    margin-left: auto;
+    max-width: 1000px;
+}
+
+.anotherfuckingcontainer {
+  margin: 20px;
+}
+
+.t1 {
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 5px;
+} .t2 {
+  margin: 0;
+}
+
+.banner {
+  object-fit: cover;
+  max-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+} .bannerimg {
+  object-fit: cover;
+  max-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navdrawer {
@@ -61,4 +98,82 @@ margin: 0;
   @media screen and (max-height: 450px) {
     .navdrawer {padding-top: 15px;}
     .navdrawer a {font-size: 18px;}
+    
+  }
+
+ 
+
+
+
+
+  .container {  display: grid;
+    
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 20px 0;
+    margin-top: 30px;
+    grid-auto-flow: column;
+    grid-template-areas: 
+    "getstarted"
+    "install"
+    "favicon"
+    "config";
+  }
+
+  @media only screen and (min-width: 35em) {  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px 20px;
+    
+   
+    
+    margin-top: 30px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "getstarted install"
+      "favicon config";
+  }}
+  
+  .getstarted { grid-area: getstarted; 
+  background-color: rgb(0, 0, 0);
+
+  
+  }
+  
+  .install { grid-area: install; 
+    background-color: #000;}
+  
+  .favicon { grid-area: favicon; 
+    background-color: #000;}
+  
+  .config { grid-area: config; 
+    background-color: #000;}
+
+    .ge {
+      border-radius: 20px;
+      border-style: solid;
+      border-color: #ffffff21;
+     border-width: 2px;
+     display: block;
+     transition: 0.2s;
+    }
+
+    .ge:hover {
+      transition: 0.2s;
+      box-shadow: 0 10px 10px 0 #00000080;
+    }
+  
+  .getstartedcontent {
+    margin: 20px;
+    
+  } .gep {
+    margin: 0;
+    padding: 0;
+  } .getstartedcontentparent {
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    width: fit-content;
+    height: fit-content;
   }
