@@ -293,7 +293,7 @@ color: white;
 .linkeffect:hover {
   opacity: 0.6;
 } .ghlink {
-  margin-left: 10px;
+  display: block;
 } .iafc {
   padding-bottom: 30px;
 }
