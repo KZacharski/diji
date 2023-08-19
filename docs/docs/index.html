@@ -12,7 +12,7 @@
 <body>
 <div class="navbar">
     <img onclick="openNav()" class="navicon" src="./assets/ic_fluent_navigation_24_filled.svg" height="25px">
-    <img src="./assets/dijidocs.png" height="40px">
+    <a href="#"><img src="./assets/dijidocs.png" height="40px" style="display: block;"></a>
 </div>
 <div class="banner">
 <img src="./assets/dijidocsbanner.png" width="100%" class="bannerimg">
@@ -22,7 +22,9 @@
     <h1 class="t1">Welcome to diji docs.</h1>
     <h2 class="t2">for version 1.1</h2>
     <div class="container">
-      <div class="getstarted ge">
+    <div class="getstarted ge">
+      <a href="./introduction.html" style="text-decoration: none; color: white;">
+        <div style="width: 100%; height: 100%; display: flex; align-items: center;">
         <div class="getstartedcontentparent">
         <div class="getstartedcontent">
         <img src="./assets/ic_fluent_rocket_24_filled.svg" height="40px" class="gep">
@@ -31,7 +33,12 @@
       </div>
       </div>
       </div>
+      </a>
+      </div>
+      
       <div class="install ge">
+        <a href="./installation.html" style="text-decoration: none; color: white;">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center;">
         <div class="getstartedcontentparent">
           <div class="getstartedcontent">
           <img src="./assets/ic_fluent_apps_add_in_24_filled.svg" height="40px" class="gep">
@@ -40,7 +47,11 @@
         </div>
         </div>
       </div>
+      </a>
+      </div>
       <div class="favicon ge">
+        <a href="./favicons.html" style="text-decoration: none; color: white;">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center;">
         <div class="getstartedcontentparent">
           <div class="getstartedcontent">
           <img src="./assets/ic_fluent_star_24_filled.svg" height="40px" class="gep">
@@ -49,8 +60,11 @@
         </div>
         </div>
       </div>
+      </a>
+      </div>
       <div class="config ge">
-
+        <a href="./configuration.html" style="text-decoration: none; color: white;">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center;">
         <div class="getstartedcontentparent">
           <div class="getstartedcontent">
           <img src="./assets/ic_fluent_settings_24_filled.svg" height="40px" class="gep">
@@ -59,6 +73,8 @@
         </div>
         </div>
 
+      </div>
+      </a>
       </div>
     </div>
     </div>
@@ -69,13 +85,26 @@
   <img src="./assets/dijidocs.png" height="40px" class="logodrawer">  
   <a href="javascript:void(0)" class="closebtn navdrawera" onclick="closeNav()"><img src="./assets/ic_fluent_chevron_left_24_filled.svg" width="30px"></a>
     <a href="#" class="navdrawerlinkactive">Homepage</a>
-    <a href="#" class="navdrawerlink">Introduction</a>
-    <a href="#" class="navdrawerlink">Installation</a>
+    <a href="./introduction.html" class="navdrawerlink">Introduction</a>
+    <a href="./installation.html" class="navdrawerlink">Installation</a>
+    <a href="./favicons.html" class="navdrawerlink">Favicons</a>
+    <a href="./configuration.html" class="navdrawerlink">Configuration</a>
+    <a href="./open-source.html" class="navdrawerlink">Open source</a>
+    <a href="./roadmap.html" class="navdrawerlink">Roadmap</a>
+    <div style="height: 60px;"></div>
+    <!--<div class="drawerbottomlinks">
+      <div class="blc">
+      <a class="bottomlink" href="https://diji.puffercat.xyz">Main website ></a>
+      <a class="bottomlink" href="https://github.com/KZacharski/diji">GitHub ></a>
+      <a class="bottomlink" href="https://github.com/KZacharski/diji/tree/github-files/docs/docs">Docs GitHub ></a>
+      </div>
+    </div>-->
   </div>
   <div id="drawerbg" class="navdrawerbg" onclick="closeNav()"></div>
   <div class="footer">
     <p class="ftrtext">Created by <a href="https://puffercat.xyz" class="footerlink">KZacharski (Puffercat)</a></p>
     <p class="ftrtext">Project created with diji 1.1</p>
+    <p class="ftrtext"><a href="https://diji.puffercat.xyz" class="footerlink ftlpadding">Main website</a> <a href="https://github.com/KZacharski/diji" class="footerlink ftlpadding">GitHub</a> <a href="https://github.com/KZacharski/diji/tree/github-files/docs/docs" class="footerlink ftlpadding">Docs Github</a></p>
   </div>
 </body>
 </html>

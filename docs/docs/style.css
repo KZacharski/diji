@@ -63,6 +63,7 @@ color: white;
     background-color: #000000; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 50px; /* Place content 60px from the top */
+ 
     transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
     box-shadow: 5px 0px 10px 0px rgba(0, 0, 0, 0.473);
   }
@@ -178,7 +179,7 @@ color: white;
     "config";
   }
 
-  @media only screen and (min-width: 35em) {  .container {
+  @media only screen and (min-width: 38em) {  .container {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 20px 20px;
@@ -229,6 +230,8 @@ color: white;
   } .gep {
     margin: 0;
     padding: 0;
+    color: #ffffff;
+    text-decoration: none;
   } .getstartedcontentparent {
     margin: 20px;
  /*   margin-left: auto;
@@ -253,4 +256,44 @@ color: white;
 
 .footerlink:hover {
     opacity: 0.6;
+} /*.drawerbottomlinks {
+  background-color: #000;
+
+  width: 250px;
+
+
+} .bottomlink {
+ 
+  color: white;
+  display: block;
+  margin: 2px;
+  padding: 2px;
+
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: 0.2s;
+} .blc {
+ /* margin-bottom: 65px;   margin-top: 30px;
+
+} .bottomlink:hover {
+  opacity: 0.6;
+}*/
+.ftlpadding {
+  padding: 5px;
+  margin: 5px;
+  padding-left: 0;
+  padding-right: 0;
+} .linkeffect {
+  color: white;
+  transition: .2s;
+}
+
+.linkeffect:hover {
+  opacity: 0.6;
+} .ghlink {
+  margin-left: 10px;
+} .iafc {
+  padding-bottom: 30px;
 }
