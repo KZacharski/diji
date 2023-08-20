@@ -97,6 +97,7 @@ color: white;
     margin: 15px;
     text-decoration: none;
     font-size: 19px;
+    white-space: nowrap;
     color: #ffffff;
     display: block;
     font-weight: 500;
@@ -107,7 +108,7 @@ color: white;
   .navdrawerlinkactive {
     padding: 6px 6px 6px 10px;
     margin: 15px;
-    
+    white-space: nowrap;
     text-decoration: none;
     font-size: 19px;
     color: #000000;
