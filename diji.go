@@ -43,8 +43,8 @@ func copy(src, dst string) (int64, error) {
 }
 
 func main() {
-	var ver string = "1.1"
-	var version int = 2
+	var ver string = "1.2"
+	var version int = 3
 
 	argsar := os.Args[1:]
 	var debugelement string = "-d"
@@ -84,9 +84,10 @@ func main() {
 	var creategitignore bool = true
 
 	var configlocation string
+	var configfile string
 	var exPath string
-	if _, err := os.Stat("diji-config/config.txt"); err == nil {
-		configlocation = "diji-config/config.txt"
+	if _, err := os.Stat("diji-config"); err == nil {
+		configlocation = "diji-config"
 
 	} else if errors.Is(err, os.ErrNotExist) {
 		ex, err := os.Executable()
@@ -94,10 +95,11 @@ func main() {
 			panic(err)
 		}
 		exPath = filepath.Dir(ex)
-		configlocation = exPath + "/diji-config/config.txt"
+		configlocation = exPath + "/diji-config"
 
 	}
-	configbytes, err := os.ReadFile(configlocation)
+	configfile = configlocation + "/config.txt"
+	configbytes, err := os.ReadFile(configfile)
 	if err != nil {
 		fmt.Print(err)
 	}
@@ -184,7 +186,7 @@ func main() {
 		log.Fatal(err)
 	}
 	var favpath string = assetspath + "/favicon.png"
-	copy("diji-config/defaultfav.png", favpath)
+	copy(configlocation+"/defaultfav.png", favpath)
 	fmt.Println(favpath + " created.")
 	var indexcontent1 string = `<!DOCTYPE html>
 <html lang="` + langstr + `">
@@ -325,6 +327,7 @@ font-family: sans-serif;
 		fmt.Print("quickargument(bool): ")
 		fmt.Println(quickargument)
 		fmt.Println("configlocation(string): " + configlocation)
+		fmt.Println("configfile(string): " + configfile)
 		fmt.Println("exPath(string): " + exPath)
 		fmt.Println("samplestr(string): " + samplestr)
 		fmt.Println("langstr(string): " + langstr)
