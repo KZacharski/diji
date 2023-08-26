@@ -7,7 +7,9 @@
 <title>Installation - diji docs</title>
 <link rel="icon" type="image" href="./assets/favicon.png">
 <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="./assets/prism.css">
 <script src="script.js"></script>
+<script src="./assets/prism.js"></script>
 </head>
 <body>
 <div class="navbar">
@@ -23,7 +25,10 @@
     <p>Extract the zip you downloaded earlier and open the folder that was extracted from it. Now select both the diji binary and the diji-config folder and copy them to a folder you want to use for creating your projects. Now you can run diji by opening the terminal (or PowerShell on windows if you don't have Windows Terminal installed) in that folder and running it with a command ./diji</p>
     <h3 class="sbtt">Way 2 (Adding to $PATH)</h3>
     <h3 class="sbt">Linux:</h3>
-    
+    (It might not work if you use a different shell instead of bash. In that case you can also try the macOS instructions.)
+    <p>Extract the downloaded zip and open the terminal.</p>
+    <p>Now run this command:</p>
+    <pre><code class="language-bash">cp -r ./Downloads/diji .local</code></pre>
 
     <div class="container2">
      <div class="prev ge">
