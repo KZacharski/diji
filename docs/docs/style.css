@@ -368,8 +368,8 @@ flex-direction: column;
 
 .linkeffect:hover {
   opacity: 0.6;
-} .ghlink {
-  display: block;
-} .iafc {
+}/* .ghlink {
+  
+}*/ .iafc {
   padding-bottom: 30px;
 }
