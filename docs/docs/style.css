@@ -193,12 +193,73 @@ color: white;
       "getstarted install"
       "favicon config";
   }}
+
+ /* .container2 {  display: grid;
+    
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px 0;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    grid-auto-flow: column;
+    grid-template-areas: 
+    "prev"
+    "next";
+  }
+
+  @media only screen and (min-width: 25em) {  .container2 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px 20px;
+    
+   
+    
+    margin-top: 30px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "prev next";
+  }}*/
+
+  .container2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0 20px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "prev next";
+  }
   
   .getstarted { grid-area: getstarted; 
   background-color: rgb(0, 0, 0);
 
   
   }
+
+  .prev { grid-area: prev; 
+    background-color: rgb(0, 0, 0);
+  
+    
+    }
+    .next { grid-area: next; 
+      background-color: rgb(0, 0, 0);
+    
+      
+      }
+
+      @media only screen and (max-width: 25em) {  .nep { 
+        font-weight: 400;
+        font-size:medium;
+      }
+    .nepar {
+      display: none;
+    }
+    .nep2 {
+      height: 25px;
+    }
+    }
   
   .install { grid-area: install; 
     background-color: #000;}
