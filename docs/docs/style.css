@@ -372,4 +372,11 @@ flex-direction: column;
   
 }*/ .iafc {
   padding-bottom: 30px;
+} .sbt {
+  font-size: medium;
+  margin-top: 0;
+  padding-top: 0;
+} .sbtt {
+  margin-bottom: 5px;
+  padding-bottom: 0;
 }
