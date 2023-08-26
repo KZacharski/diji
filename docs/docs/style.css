@@ -238,7 +238,7 @@ flex-direction: column;
     grid-template-rows: 1fr;
     gap: 0 20px;
     margin-top: 30px;
-    margin-bottom: 50px;
+
     grid-auto-flow: row;
     grid-template-areas:
       "prev next";
