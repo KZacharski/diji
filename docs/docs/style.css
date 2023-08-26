@@ -5,6 +5,8 @@ font-family: 'Open Sans', sans-serif;
 margin: 0;
 background-color: #111;
 color: white;
+display: flex;
+flex-direction: column;
 } .navbar {
     position: sticky;
     top: 0px;
@@ -25,6 +27,7 @@ color: white;
   margin-right: auto;
     margin-left: auto;
     max-width: 1000px;
+    flex: 1 0 auto;
 }
 
 .anotherfuckingcontainer {
@@ -46,11 +49,14 @@ color: white;
   max-height: 400px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 } .bannerimg {
   object-fit: cover;
   max-height: 400px;
   margin-left: auto;
+  max-width: none;
   margin-right: auto;
+  width: 100%;
 }
 
 .navdrawer {
@@ -178,6 +184,7 @@ color: white;
     "install"
     "favicon"
     "config";
+
   }
 
   @media only screen and (min-width: 38em) {  .container {
@@ -305,6 +312,8 @@ color: white;
     text-align: center;
     background-color: #000;
     display: flex;
+
+    flex-shrink: 0;
     align-items: center;
     flex-direction: column;
     justify-content: center;
