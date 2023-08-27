@@ -458,4 +458,6 @@ pre {
   color: #dc2626;
 } .iwarnlink:hover {
   text-decoration: none;
-} 
+} .winscreen {
+  max-width: 100%;
+}

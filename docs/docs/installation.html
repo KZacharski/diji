@@ -51,6 +51,23 @@
     <p>Of course save the file afterwards</p>
     <p>Now you can either reboot/log out and back in to save the changes systemwide or if you're busy, run <code class="language-bash" style="white-space: nowrap;">source ~/.zprofile</code> to apply them in your current terminal session.</p>
     <p>After doing this, running <code class="language-bash">diji</code> in your terminal should make diji start. (It will quite likely display a dialog about the developer "not being verified". <a href="#macosfix" class="linkeffect">Here's the fix</a>)</p>
+    <h3 class="sbt">Windows:</h3>
+    <p>Extract the downloaded zip and open Windows Terminal or PowerShell. If you're using Windows Terminal, make sure the active tab says PowerShell.</p>
+    <p>Now run this command (replace [architecture] with your cpu's architecture (it's at the end of the file name of the zip you downloaded)):</p>
+    <pre><code class="language-batch">Copy-Item "Downloads/diji-1.2-windows-[architecture]/diji" -Destination "AppData" -Recurse</code></pre>
+    <p>Open Settings, scroll down to the bottom and click "About":</p>
+    <img src="./assets/winscreen1.png" class="winscreen">
+    <p>Click "Advanced system settings":</p>
+    <img src="./assets/winscreen2.png" class="winscreen">
+    <p>Click "Environment variables...":</p>
+    <img src="./assets/winscreen3.png" class="winscreen">
+    <p>Select the "Path" variable and click "Edit...":</p>
+    <img src="./assets/winscreen4.png" class="winscreen">
+    <p>Click "New" and paste the following path (replace [user] with your username):</p>
+    <pre><code class="language-plaintext">C:\Users\[user]\AppData\diji</code></pre>
+    <img src="./assets/winscreen5.png" class="winscreen">
+    <p>Now press "OK"</p>
+    <p>After doing this, running <code class="language-bash">diji</code> in a new terminal window should make diji start.</p>
     <div class="container2">
      <div class="prev ge">
         <a href="./introduction.html" style="text-decoration: none; color: white; height: 100%; width: 100%;">
