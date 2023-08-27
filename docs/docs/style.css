@@ -463,4 +463,6 @@ pre {
 } .macscreen {
   width: 100%;
   max-width: 400px;
+} .macosfix {
+  scroll-margin-top: 80px;
 }
