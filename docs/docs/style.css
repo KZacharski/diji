@@ -460,4 +460,6 @@ pre {
   text-decoration: none;
 } .winscreen {
   max-width: 100%;
+} .macscreen {
+  max-width: 400px;
 }
