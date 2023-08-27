@@ -20,7 +20,9 @@
   <div class="content">
 <div class="anotherfuckingcontainer iafc">
     <h1 class="t1">Installation</h1>
-    <h3 class="t2">Last edited: 26 August 2023<br><a href="https://github.com/KZacharski/diji/blob/github-files/docs/docs/installation.html" class="linkeffect ghlink">Open on GitHub</a></h3>
+    <h3 class="t2">Last edited: 27 August 2023<br><a href="https://github.com/KZacharski/diji/blob/github-files/docs/docs/installation.html" class="linkeffect ghlink">Open on GitHub</a></h3>
+    <br>
+    <a href="#macosfix" class="iwarnlink"><div class="iwarning"><h3 class="iwarningtext">macOS users: If you can't run diji because of it "not coming from a verified developer" according to Apple, click here for a solution</h3></div></a>
     <p>After downloading diji you have 2 choices. You can either put it in a folder where you're gonna create all of your projects (for example Documents) or add it to $PATH and use it anywhere.</p>
     <h3>Way 1 (Storing in the projects folder)</h3>
     <p>Extract the zip you downloaded earlier and open the folder that was extracted from it. Now select both the diji binary and the diji-config folder and copy them to a folder you want to use for creating your projects. Now you can run diji by opening the terminal (or PowerShell on windows if you don't have Windows Terminal installed) in that folder and running it with a command <code class="language-bash">./diji</code></p>
@@ -37,6 +39,18 @@
     <p>Of course save the file afterwards</p>
     <p>Now you can either reboot/log out and back in to save the changes systemwide or if you're busy, run <code class="language-bash" style="white-space: nowrap;">source ~/.profile</code> to apply them in your current terminal session.</p>
     <p>After doing this, running <code class="language-bash">diji</code> in your terminal should make diji start.</p>
+    <h3 class="sbt">macOS:</h3>
+    (It might not work if you use a different shell instead of zsh. In that case you can also try the Linux instructions. If that doesn't work either just look up online how to add files to $PATH on your shell.)
+    <p>Extract the downloaded zip and open the terminal.</p>
+    <p>Now run this command:</p>
+    <pre><code class="language-bash">cp -r ./Downloads/diji .local</code></pre>
+    <p>Open .profile in your favorite editor (in my case neovim):</p>
+    <pre><code class="language-bash">nvim .zprofile</code></pre>
+    <p>Go to the end of the file and paste this line (replace [user] with your username):</p>
+    <pre><code class="language-bash">export PATH=$PATH:/Users/[user]/.local/diji</code></pre>
+    <p>Of course save the file afterwards</p>
+    <p>Now you can either reboot/log out and back in to save the changes systemwide or if you're busy, run <code class="language-bash" style="white-space: nowrap;">source ~/.zprofile</code> to apply them in your current terminal session.</p>
+    <p>After doing this, running <code class="language-bash">diji</code> in your terminal should make diji start. (It will quite likely display a dialog about the developer "not being verified". <a href="#macosfix" class="linkeffect">Here's the fix</a>)</p>
     <div class="container2">
      <div class="prev ge">
         <a href="./introduction.html" style="text-decoration: none; color: white; height: 100%; width: 100%;">

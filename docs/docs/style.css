@@ -441,4 +441,21 @@ pre {
 } .hhh {
   height: auto;
   flex: 1 0 auto;
-}
+} .iwarning {
+  text-transform: uppercase;
+  background-color: #450a0a;
+  color: #dc2626;
+  padding:20px;
+  border-radius: 25px;
+  font-size: small;
+} .iwarningtext {
+  padding: 0;
+  margin: 0;
+} .iwarnlink {
+  transition: .2s;
+  text-decoration:underline;
+  text-decoration-thickness: 2px;
+  color: #dc2626;
+} .iwarnlink:hover {
+  text-decoration: none;
+} 
