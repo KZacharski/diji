@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Open source - diji docs</title>
+<link rel="icon" type="image" href="./assets/favicon.png">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="./assets/prism.css">
+<script src="script.js"></script>
+<script src="./assets/prism.js"></script>
+<meta name="theme-color" content="#000000" />
+</head>
+<body>
+  <div class="hhh">
+<div class="navbar">
+    <img onclick="openNav()" class="navicon" src="./assets/ic_fluent_navigation_24_filled.svg" height="25px">
+    <a href="./index.html"><img src="./assets/dijidocs.png" height="40px" style="display: block;"></a>
+</div>
+  <div class="content">
+<div class="anotherfuckingcontainer iafc">
+    <h1 class="t1">Open source</h1>
+    <h3 class="t2">Last edited: 28 August 2023<br><a href="https://github.com/KZacharski/diji/blob/github-files/docs/docs/open-source.html" class="linkeffect ghlink">Open on GitHub</a></h3>
+    <p>diji as well as it's website and docs are open source on the MIT license with all 3 being available in <a href="https://github.com/KZacharski/diji" class="linkeffect">this GitHub repo</a> with diji being located in the <code class="language-plaintext">main</code> branch while the website and docs are located in the <code class="language-plaintext">github-files</code> branch</p>
+    <p>The project is open to contributions (but don't do it for the sake of your sanity, the code is terrible)</p>
+    <p>You're also welcome to fork it and make your own version as long as you give credit to the original creator (well, partially original, most of the code comes from stackoverflow anyways)</p>
+    <p>The website's source code is available in the <code class="language-plaintext">docs</code> folder of the <code class="language-plaintext">github-files</code> branch while the docs source is available in the <code class="language-plaintext">docs/docs</code> folder of the same branch. (don't ask why)</p>
+    <h3>Building diji</h3>
+    <p>To build diji you need golang and git to be installed on your computer</p>
+    <p>Clone the git repo:</p>
+    <pre><code class="language-bash">git clone https://github.com/KZacharski/diji.git</code></pre>
+    <p>Now open the <code class="language-plaintext">diji</code> folder (it will be located in your home/user folder) in your file explorer and create a new folder there also called <code class="language-plaintext">diji</code>, then copy the <code class="language-plaintext">diji-config</code> folder from the root of the repo to the newly created <code class="language-plaintext">diji</code> folder</p>
+    <p>Open the repo in your terminal:</p>
+    <pre><code class="language-bash">cd diji</code></pre>
+    <br>
+    <h3 class="sbt">Building for the same platform as your device</h3>
+    <pre><code class="language-bash">go build -o diji/diji</code></pre>
+    <p>If you're using Windows:</p>
+    <pre><code class="language-batch">go build -o diji/diji.exe</code></pre>
+    <br>
+    <h3 class="sbt">Building for a different platform</h3>
+    
+    
+    <div class="container2">
+     <div class="prev ge">
+        <a href="./configuration.html" style="text-decoration: none; color: white; height: 100%; width: 100%;">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center;">
+          <div class="nextcontentparent">
+          <div class="getstartedcontent">
+          <img src="./assets/ic_fluent_chevron_left_24_filled.svg" height="30px" class="gep nep2">
+          <h3 class="gep nep">Configuration</h3>
+          <p class="gep gepar nepar">Previous page</p>
+        </div>
+        </div>
+        </div>
+        </a>
+        </div>
+        
+        
+          <div class="next ge">
+            <a href="./roadmap.html" style="text-decoration: none; color: white; height: 100%; width: 100%;">
+              <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: right; text-align: right;">
+              <div class="nextcontentparent">
+              <div class="getstartedcontent">
+              <div style="display: flex; justify-content: right;">
+              <img src="./assets/ic_fluent_chevron_right_24_filled.svg" height="30px" class="gep nep2">
+              </div>
+              <h3 class="gep nep">Roadmap</h3>
+              <p class="gep gepar nepar">Next page</p>
+            </div>
+            </div>
+            </div>
+            </a>
+            </div>
+       
+      </div>
+      </div>
+    </div>
+
+
+
+ 
+  
+
+<div id="drawer" class="navdrawer">
+  <img src="./assets/dijidocs.png" height="40px" class="logodrawer">  
+  <a href="javascript:void(0)" class="closebtn navdrawera" onclick="closeNav()"><img src="./assets/ic_fluent_chevron_left_24_filled.svg" width="30px"></a>
+    <a href="./index.html" class="navdrawerlink">Homepage</a>
+    <a href="./introduction.html" class="navdrawerlink">Introduction</a>
+    <a href="./installation.html" class="navdrawerlink">Installation</a>
+    <a href="./favicons.html" class="navdrawerlink">Favicons</a>
+    <a href="./configuration.html" class="navdrawerlink">Configuration</a>
+    <a href="#" class="navdrawerlinkactive">Open source</a>
+    <a href="./roadmap.html" class="navdrawerlink">Roadmap</a>
+    <div style="height: 60px;"></div>
+    <!--<div class="drawerbottomlinks">
+      <div class="blc">
+      <a class="bottomlink" href="https://diji.puffercat.xyz">Main website ></a>
+      <a class="bottomlink" href="https://github.com/KZacharski/diji">GitHub ></a>
+      <a class="bottomlink" href="https://github.com/KZacharski/diji/tree/github-files/docs/docs">Docs GitHub ></a>
+      </div>
+    </div>-->
+  </div>
+  <div id="drawerbg" class="navdrawerbg" onclick="closeNav()"></div>
+</div>
+  <div class="footer">
+    <p class="ftrtext">Created by <a href="https://puffercat.xyz" class="footerlink">KZacharski (Puffercat)</a></p>
+    <p class="ftrtext"><a href="https://diji.puffercat.xyz" class="footerlink">Project created with diji 1.1</a></p>
+    <p class="ftrtext"><a href="https://diji.puffercat.xyz" class="footerlink ftlpadding">Main website</a> <a href="https://github.com/KZacharski/diji" class="footerlink ftlpadding">GitHub</a> <a href="https://github.com/KZacharski/diji/tree/github-files/docs/docs" class="footerlink ftlpadding">Docs Github</a></p>
+  </div>
+</body>
+</html>
