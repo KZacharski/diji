@@ -40,7 +40,10 @@
     <pre><code class="language-batch">go build -o diji/diji.exe</code></pre>
     <br>
     <h3 class="sbt">Building for a different platform</h3>
-    
+    <p>List all of the possible targets ([platform]/[architecture]):</p>
+    <pre><code class="language-bash">go tool dist list</code></pre>
+    <p>Now select the target you want to build for and run this command, replacing [platform] with the os you want to build for and [architecture] with the architecture you want to build for:</p>
+    <pre><code class="language-bash">GOOS=[platform] GOARCH=[architecture] go build . -o diji/diji</code></pre>
     
     <div class="container2">
      <div class="prev ge">
