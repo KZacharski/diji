@@ -49,8 +49,10 @@ func main() {
 	argsar := os.Args[1:]
 	var debugelement string = "-d"
 	var quickelement string = "-q"
+	var buildelement string = "--buildversion"
 	var debugargument bool = false
 	var quickargument bool = false
+	var buildargument bool = false
 
 	for i := 0; i < len(argsar); i++ {
 		// checking if the array contains the given value
@@ -68,6 +70,20 @@ func main() {
 			quickargument = true
 			break
 		}
+	}
+
+	for i := 0; i < len(argsar); i++ {
+		// checking if the array contains the given value
+		if argsar[i] == buildelement {
+			// changing the boolean variable
+			buildargument = true
+			break
+		}
+	}
+
+	if buildargument == true {
+		fmt.Print(ver)
+		os.Exit(0)
 	}
 
 	var projname string
