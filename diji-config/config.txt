@@ -1,8 +1,5 @@
 // Quick mode skips all the questions besides project name and always uses the default option.
 quick-mode = false
 
-// Debug mode - prints all variables at the end of a run.
-debug = false
-
 // Should a favicon be added by default
 favicon = true

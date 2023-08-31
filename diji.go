@@ -44,26 +44,15 @@ func copy(src, dst string) (int64, error) {
 
 func main() {
 	var ver string = "1.3"
-	var version int = 4
+	//	var version int = 4
 
 	argsar := os.Args[1:]
-	var debugelement string = "-d"
 	var quickelement string = "-q"
 	var buildelement string = "--buildversion"
 	var addfavelement string = "-f"
-	var debugargument bool = false
 	var quickargument bool = false
 	var buildargument bool = false
 	var addfavargument bool = false
-
-	for i := 0; i < len(argsar); i++ {
-		// checking if the array contains the given value
-		if argsar[i] == debugelement {
-			// changing the boolean variable
-			debugargument = true
-			break
-		}
-	}
 
 	for i := 0; i < len(argsar); i++ {
 		// checking if the array contains the given value
@@ -132,16 +121,7 @@ func main() {
 	}
 	configtext := string(configbytes)
 	var quickmode bool = strings.Contains(configtext, "quick-mode = true")
-	var debug bool = strings.Contains(configtext, "debug = true")
 	var addfav bool = strings.Contains(configtext, "favicon = true")
-
-	if debugargument == true {
-		if debug == true {
-			debug = false
-		} else if debug == false {
-			debug = true
-		}
-	}
 
 	if quickargument == true {
 		if quickmode == true {
@@ -333,60 +313,6 @@ font-family: sans-serif;
 			log.Fatal(err)
 		}
 		fmt.Println("Git repo initialized.")
-	}
-
-	if debug == true {
-		fmt.Println(version)
-		fmt.Println("projname(string): " + projname)
-		fmt.Print("createcss(bool): ")
-		fmt.Println(createcss)
-		fmt.Print("createjs(bool): ")
-		fmt.Println(createjs)
-		fmt.Print("configbytes([]byte]): ")
-		fmt.Println(configbytes)
-		fmt.Println("configtext(string): " + configtext)
-		fmt.Print("quickmode(bool): ")
-		fmt.Println(quickmode)
-		fmt.Print("debug(bool): ")
-		fmt.Println(debug)
-		fmt.Println("cssstr(string): " + cssstr)
-		fmt.Println("jsstr(string): " + jsstr)
-		fmt.Println("indname(string): " + indname)
-		//fmt.Println("assetspath(string): " + assetspath)
-		//	fmt.Println("favpath(string): " + favpath)
-		fmt.Println("indexcontent1(string): " + indexcontent1)
-		fmt.Println("csstag(string): " + csstag)
-		fmt.Println("jstag(string): " + jstag)
-		fmt.Println("indexcontent2(string): " + indexcontent2)
-		fmt.Println("indexcontent(string): " + indexcontent)
-		fmt.Println("cssname(string): " + cssname)
-		fmt.Println("csscontent(string): " + csscontent)
-		fmt.Println("jsname(string): " + jsname)
-		fmt.Print("argsar(array): ")
-		fmt.Println(argsar)
-		fmt.Println("debugelement(string): " + debugelement)
-		fmt.Println("quickelement(string): " + quickelement)
-		fmt.Print("debugargument(bool): ")
-		fmt.Println(debugargument)
-		fmt.Print("quickargument(bool): ")
-		fmt.Println(quickargument)
-		fmt.Println("configlocation(string): " + configlocation)
-		fmt.Println("configfile(string): " + configfile)
-		fmt.Println("exPath(string): " + exPath)
-		fmt.Println("samplestr(string): " + samplestr)
-		fmt.Println("langstr(string): " + langstr)
-		fmt.Println("gitstr(string): " + gitstr)
-		fmt.Println("gitignorestr(string): " + gitignorestr)
-		fmt.Println("gifiles(string): " + gifiles)
-		fmt.Print("createsample(bool): ")
-		fmt.Println(createsample)
-		fmt.Print("initgit(bool): ")
-		fmt.Println(initgit)
-		fmt.Print("creategitignore(bool): ")
-		fmt.Println(creategitignore)
-		fmt.Println("samplecontent(string)" + samplecontent)
-		fmt.Println("giname(string)" + giname)
-		fmt.Println("gicontent(string)" + gicontent)
 	}
 
 	fmt.Println("Project created in ./" + projname + ".")
