@@ -3,3 +3,6 @@ quick-mode = false
 
 // Debug mode - prints all variables at the end of a run.
 debug = false
+
+// Should a favicon be added by default
+favicon = true

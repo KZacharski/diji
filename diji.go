@@ -43,16 +43,18 @@ func copy(src, dst string) (int64, error) {
 }
 
 func main() {
-	var ver string = "1.2"
-	var version int = 3
+	var ver string = "1.3"
+	var version int = 4
 
 	argsar := os.Args[1:]
 	var debugelement string = "-d"
 	var quickelement string = "-q"
 	var buildelement string = "--buildversion"
+	var addfavelement string = "-f"
 	var debugargument bool = false
 	var quickargument bool = false
 	var buildargument bool = false
+	var addfavargument bool = false
 
 	for i := 0; i < len(argsar); i++ {
 		// checking if the array contains the given value
@@ -77,6 +79,15 @@ func main() {
 		if argsar[i] == buildelement {
 			// changing the boolean variable
 			buildargument = true
+			break
+		}
+	}
+
+	for i := 0; i < len(argsar); i++ {
+		// checking if the array contains the given value
+		if argsar[i] == addfavelement {
+			// changing the boolean variable
+			addfavargument = true
 			break
 		}
 	}
@@ -122,6 +133,7 @@ func main() {
 	configtext := string(configbytes)
 	var quickmode bool = strings.Contains(configtext, "quick-mode = true")
 	var debug bool = strings.Contains(configtext, "debug = true")
+	var addfav bool = strings.Contains(configtext, "favicon = true")
 
 	if debugargument == true {
 		if debug == true {
@@ -136,6 +148,14 @@ func main() {
 			quickmode = false
 		} else if quickmode == false {
 			quickmode = true
+		}
+	}
+
+	if addfavargument == true {
+		if addfav == true {
+			addfav = false
+		} else if addfav == false {
+			addfav = true
 		}
 	}
 
@@ -197,13 +217,17 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	var assetspath string = projname + "/assets"
-	if err := os.Mkdir(assetspath, os.ModePerm); err != nil {
-		log.Fatal(err)
+
+	if addfav == true {
+		var assetspath string = projname + "/assets"
+		if err := os.Mkdir(assetspath, os.ModePerm); err != nil {
+			log.Fatal(err)
+		}
+		var favpath string = assetspath + "/favicon.png"
+		copy(configlocation+"/defaultfav.png", favpath)
+		fmt.Println(favpath + " created.")
 	}
-	var favpath string = assetspath + "/favicon.png"
-	copy(configlocation+"/defaultfav.png", favpath)
-	fmt.Println(favpath + " created.")
+
 	var indexcontent1 string = `<!DOCTYPE html>
 <html lang="` + langstr + `">
 <head>
@@ -211,7 +235,6 @@ func main() {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>` + projname + `</title>
-<link rel="icon" type="image" href="./assets/favicon.png">
 `
 	var csstag string = `<link rel="stylesheet" type="text/css" href="style.css">
 `
@@ -229,6 +252,11 @@ func main() {
 <body>
 ` + samplecontent + `
 </body>`
+	}
+	var favtag string = `<link rel="icon" type="image" href="./assets/favicon.png">
+`
+	if addfav == true {
+		indexcontent1 = indexcontent1 + favtag
 	}
 	if createcss == true {
 		indexcontent1 = indexcontent1 + csstag
@@ -324,8 +352,8 @@ font-family: sans-serif;
 		fmt.Println("cssstr(string): " + cssstr)
 		fmt.Println("jsstr(string): " + jsstr)
 		fmt.Println("indname(string): " + indname)
-		fmt.Println("assetspath(string): " + assetspath)
-		fmt.Println("favpath(string): " + favpath)
+		//fmt.Println("assetspath(string): " + assetspath)
+		//	fmt.Println("favpath(string): " + favpath)
 		fmt.Println("indexcontent1(string): " + indexcontent1)
 		fmt.Println("csstag(string): " + csstag)
 		fmt.Println("jstag(string): " + jstag)
