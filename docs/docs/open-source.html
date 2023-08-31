@@ -21,7 +21,7 @@
   <div class="content">
 <div class="anotherfuckingcontainer iafc">
     <h1 class="t1">Open source</h1>
-    <h3 class="t2">Last edited: 28 August 2023<br><a href="https://github.com/KZacharski/diji/blob/github-files/docs/docs/open-source.html" class="linkeffect ghlink">Open on GitHub</a></h3>
+    <h3 class="t2">Last edited: 31 August 2023<br><a href="https://github.com/KZacharski/diji/blob/github-files/docs/docs/open-source.html" class="linkeffect ghlink">Open on GitHub</a></h3>
     <p>diji as well as it's website and docs are open source on the MIT license with all 3 being available in <a href="https://github.com/KZacharski/diji" class="linkeffect">this GitHub repo</a> with diji being located in the <code class="language-plaintext">main</code> branch while the website and docs are located in the <code class="language-plaintext">github-files</code> branch</p>
     <p>The project is open to contributions (but don't do it for the sake of your sanity, the code is terrible)</p>
     <p>You're also welcome to fork it and make your own version as long as you give credit to the original creator (well, partially original, most of the code comes from stackoverflow anyways)</p>
@@ -43,7 +43,10 @@
     <p>List all of the possible targets ([platform]/[architecture]):</p>
     <pre><code class="language-bash">go tool dist list</code></pre>
     <p>Now select the target you want to build for and run this command, replacing [platform] with the os you want to build for and [architecture] with the architecture you want to build for:</p>
-    <pre><code class="language-bash">GOOS=[platform] GOARCH=[architecture] go build . -o diji/diji</code></pre>
+    <pre><code class="language-bash">GOOS=[platform] GOARCH=[architecture] go build -o diji/diji</code></pre>
+    <p>Or if you're building for Windows:</p>
+    <pre><code class="language-bash">GOOS=[platform] GOARCH=[architecture] go build -o diji/diji.exe</code></pre>
+    <p>Other platforms might require other formats. I'm only mentioning the ones that I know as I build them officially. If you have experienced needing to add a format while building for a platform other than Windows, feel free to contribute to the docs and share that info with everyone.</p>
     
     <div class="container2">
      <div class="prev ge">
