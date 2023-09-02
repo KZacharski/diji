@@ -3,3 +3,6 @@ quick-mode = false
 
 // Should a favicon be added by default
 favicon = true
+
+// Create a commit after initializing the repo
+commit = true

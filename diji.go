@@ -50,9 +50,11 @@ func main() {
 	var quickelement string = "-q"
 	var buildelement string = "--buildversion"
 	var addfavelement string = "-f"
+	var commitelement string = "-c"
 	var quickargument bool = false
 	var buildargument bool = false
 	var addfavargument bool = false
+	var commitargument bool = false
 
 	for i := 0; i < len(argsar); i++ {
 		// checking if the array contains the given value
@@ -84,6 +86,15 @@ func main() {
 	if buildargument == true {
 		fmt.Print(ver)
 		os.Exit(0)
+	}
+
+	for i := 0; i < len(argsar); i++ {
+		// checking if the array contains the given value
+		if argsar[i] == commitelement {
+			// changing the boolean variable
+			commitargument = true
+			break
+		}
 	}
 
 	var projname string
@@ -132,6 +143,7 @@ func main() {
 
 	var quickmode bool = strings.Contains(configtext, "quick-mode = true")
 	var addfav bool = strings.Contains(configtext, "favicon = true")
+	var commitinit bool = strings.Contains(configtext, "commit = true")
 
 	if quickargument == true {
 		if quickmode == true {
@@ -146,6 +158,14 @@ func main() {
 			addfav = false
 		} else if addfav == false {
 			addfav = true
+		}
+	}
+
+	if commitargument == true {
+		if commitinit == true {
+			commitinit = false
+		} else if commitinit == false {
+			commitinit = true
 		}
 	}
 
@@ -311,16 +331,20 @@ font-family: sans-serif;
 		if err := cmd.Run(); err != nil {
 			log.Fatal(err)
 		}
-		cmd1 := exec.Command("git", "add", ".")
-		cmd1.Dir = "./" + projname
-		if err := cmd1.Run(); err != nil {
-			log.Fatal(err)
-		}
 
-		cmd2 := exec.Command("git", "commit", "-a", "-m", `"Initial commit"`)
-		cmd2.Dir = "./" + projname
-		if err := cmd2.Run(); err != nil {
-			log.Fatal(err)
+		if commitinit == true {
+
+			cmd1 := exec.Command("git", "add", ".")
+			cmd1.Dir = "./" + projname
+			if err := cmd1.Run(); err != nil {
+				log.Fatal(err)
+			}
+
+			cmd2 := exec.Command("git", "commit", "-a", "-m", `"Initial commit"`)
+			cmd2.Dir = "./" + projname
+			if err := cmd2.Run(); err != nil {
+				log.Fatal(err)
+			}
 		}
 		fmt.Println("Git repo initialized.")
 	}
