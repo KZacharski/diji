@@ -120,6 +120,16 @@ func main() {
 		fmt.Print(err)
 	}
 	configtext := string(configbytes)
+
+	var gitemplatelocation string
+
+	gitemplatelocation = configlocation + "/gitignore.txt"
+	gibytes, err := os.ReadFile(gitemplatelocation)
+	if err != nil {
+		fmt.Print(err)
+	}
+	gitemplatetext := string(gibytes)
+
 	var quickmode bool = strings.Contains(configtext, "quick-mode = true")
 	var addfav bool = strings.Contains(configtext, "favicon = true")
 
@@ -284,7 +294,7 @@ font-family: sans-serif;
 
 	if creategitignore == true {
 		giname = projname + "/.gitignore"
-		gicontent = ".DS_Store " + gifiles
+		gicontent = gitemplatetext + gifiles
 		gignore, err := os.Create(giname)
 		if err != nil {
 			log.Fatal(err)
